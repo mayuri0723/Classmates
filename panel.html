@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <style>
+
+        .pad{
+            padding: 5% 10%;
+        }
+        @media only  screen and (max-width: 800px) {
+            .card{
+                width: 100%;
+                margin: 0;
+            }
+            .pad{
+                padding: 0;
+            }
+        }
+    </style>
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-left pad">
+            <div class="card mb-3 " >
+                <img src="..." class="card-img-top" id="img"  alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" id="name"></h5>
+                    <div class="table-responsive" >
+                        <table id="tab" class="table">
+                            <th colspan="4">
+                                Educational details
+                            </th>
+                            <tr>
+                                <td>Qualification</td>
+                                <td>Percentage</td>
+                                <td>Stream</td>
+                                <td>Institute</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            console.log(document.cookie)
+            let classmate=document.cookie.split("data=")[1];
+            let jsondata=JSON.parse(classmate);
+            let table=document.getElementById("tab");
+            document.getElementById("name").textContent=jsondata.name;
+            document.getElementById("img").src=jsondata.img;
+            clearTable();
+
+            Object.keys(jsondata).forEach(key => {
+                if(key=="edu"){
+                    Object.keys(jsondata[key]).forEach(subkey =>{
+                        let tr=document.createElement("tr");
+                        
+                        let td1=document.createElement("td");
+                        td1.textContent=subkey;
+                        
+                        let td2=document.createElement("td");
+                        td2.textContent=jsondata[key][subkey].per;
+                        let td3=document.createElement("td");
+                        td3.textContent=jsondata[key][subkey].stream;
+                        let td4=document.createElement("td");
+                        td4.textContent=jsondata[key][subkey].institute;
+
+
+                        tr.setAttribute("scope", "row");
+                        tr.appendChild(td1);
+                        tr.appendChild(td2);
+                        tr.appendChild(td3);
+                        tr.appendChild(td4);
+
+                        
+
+                        table.appendChild(tr);
+                    });
+                }
+            });
+
+            function clearTable(){
+                for(let i=(table.rows.length-1);i>=1;i--){
+                    table.deleteRow(i);
+                }
+            }
+
+
+
+        </script>    
+    </div>
+
+    
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

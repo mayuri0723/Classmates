@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	<style>
+		.card{
+			cursor: pointer;
+		}
+		.card:hover{
+			opacity: 0.79;
+			box-shadow: 0px 0px 20px 0px lightgray;
+		}
+	</style>
+	<title>Classmates</title>
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<div class="d-flex justify-content-center mt-5 mb-5">
+			<h1>My classmates</h1>
+		</div>
+		<div class="d-flex flex-nowrap justify-content-center">
+			<div class="card m-3" style="width: 18rem;">
+				<img src="./classmates/Satish Sinha.jpg" style="cursor:pointer;" onclick="display('C1')" class="img-thumbnail" alt="no image">
+			</div>
+			<div class="card m-3" style="width: 18rem;">
+				<img src="./classmates/Sejal Patil.jpg" onclick="display('C2')" class="img-thumbnail" alt="no image">
+			</div>
+			<div class="card m-3" style="width: 18rem;">
+				<img src="./classmates/Mason Samuel.jpg" onclick="display('C3')" class="img-thumbnail" alt="...">
+			</div>
+		</div>
+		<div class="d-flex flex-nowrap justify-content-center ">
+			<div class="card m-3" style="width: 18rem;">
+				<img src="./classmates/Trisha Deshmukh.jpg" style="cursor:pointer;" onclick="display('C4')" class="img-thumbnail" alt="no image">
+			</div>
+			<div class="card m-3" style="width: 18rem;">
+				<img src="./classmates/Elina Michel.jpg" onclick="display('C5')" class="img-thumbnail" alt="no image">
+			</div>
+			<div class="card m-3" style="width: 18rem;">
+				<img src="./classmates/Manish Agarwal.jpg" onclick="display('C6')" class="img-thumbnail" alt="...">
+			</div>
+		</div>
+	</div>
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+		crossorigin="anonymous"></script>
+
+		<script>
+
+			classmates=[
+				{
+					id : 'C1',
+					name : 'Satish Sinha',
+					img : "./classmates/Satish Sinha.jpg",
+					edu : {
+						ssc : {
+							per: 85,
+							stream: "NA",
+							institute: "Jovian High School"
+						},
+						hsc : {
+							per : 87,
+							stream : "Science",
+							institute: "Nowrosjee wadia college"
+						},
+
+						grad : {
+							per : 89,
+							stream : "B.C.A",
+							institute : "Shivaji Institute, Pune",
+						},
+						postgrad : {
+							per : 89,
+							stream : "M.C.A",
+							institute : "Modern College of Engineering, Pune",
+						}
+					} 
+				},
+				{
+					id : 'C2',
+					name : 'Sejal Patil',
+					img : "./classmates/Sejal Patil.jpg",
+					edu : {
+						ssc : {
+							per: 79,
+							stream: "NA",
+							institute: "Porb High School"
+						},
+						hsc : {
+							per : 87,
+							stream : "Science",
+							institute: "Howrupee wadia college"
+						},
+
+						grad : {
+							per : 83,
+							stream : "B.C.A",
+							institute : "Mulchand Institute of Technology Pune",
+						},
+						postgrad : {
+							per : 99.99,
+							stream : "M.C.A",
+							institute : "Modern College of Engineering, Pune",
+						}
+					} 
+				},
+				{
+					id : 'C3',
+					name : 'Mason Samuel',
+					img : "./classmates/Mason Samuel.jpg",
+					edu : {
+						ssc : {
+							per: 70,
+							stream: "NA",
+							institute: "Kombad High School"
+						},
+						hsc : {
+							per : 87,
+							stream : "Science",
+							institute: "Gunitam college"
+						},
+
+						grad : {
+							per : 75,
+							stream : "B.C.S.",
+							institute : "Panda Institute, Pune",
+						},
+						postgrad : {
+							per : 87,
+							stream : "M.C.A",
+							institute : "Modern College of Engineering, Pune",
+						}
+					} 
+				},
+				{
+					id : 'C4',
+					name : 'Trisha Deshmukh',
+					img : "./classmates/Trisha Deshmukh.jpg",
+					edu : {
+						ssc : {
+							per: 88,
+							stream: "NA",
+							institute: "Jovian High School"
+						},
+						hsc : {
+							per : 69,
+							stream : "Science",
+							institute: "Nowrosjee wadia college"
+						},
+
+						grad : {
+							per : 90,
+							stream : "B.Sc Mathematics",
+							institute : "Green Card college, Pune",
+						},
+						postgrad : {
+							per : 81,
+							stream : "M.C.A",
+							institute : "Modern College of Engineering, Pune",
+						}
+					} 
+				},
+				{
+					id : 'C5',
+					name : 'Elina Michel',
+					img : "./classmates/Elina Michel.jpg",
+					edu : {
+						ssc : {
+							per: 79,
+							stream: "NA",
+							institute: "Grampositive High School"
+						},
+						hsc : {
+							per : 97,
+							stream : "Science",
+							institute: "Kajuminar college"
+						},
+
+						grad : {
+							per : 99,
+							stream : "B.Sc. Physics",
+							institute : "Briliant Technology Pune",
+						},
+						postgrad : {
+							per : 93,
+							stream : "M.C.A",
+							institute : "Modern College of Engineering, Pune",
+						}
+					} 
+				},
+				{
+					id : 'C6',
+					name : 'Manish Agarwal',
+					img : "./classmates/Manish Agarwal.jpg",
+					edu : {
+						ssc : {
+							per: 94,
+							stream: "NA",
+							institute: "Jeevan High School"
+						},
+						hsc : {
+							per : 73,
+							stream : "Science",
+							institute: "Gomant college"
+						},
+
+						grad : {
+							per : 80,
+							stream : "B.Sc. Physics",
+							institute : "Briliant Technology Pune",
+						},
+						postgrad : {
+							per : 90,
+							stream : "M.C.A",
+							institute : "Modern College of Engineering, Pune",
+						}
+					} 
+				}
+			];
+			
+			function display(id){
+				
+				for (let i=0;i<classmates.length;i++){
+					if(classmates[i].id==id){
+						data="data="+JSON.stringify(classmates[i])
+						// console.log(data);
+						
+						const d = new Date();
+						d.setTime(d.getTime() + (1 * 24 * 60 * 1000));
+						
+						let expires = "expires="+d.toUTCString();
+						document.cookie=data+"; "+expires;
+						// document.cookie=data;
+						console.log(document.cookie);
+
+						window.location.href="panel.html";
+					}
+				}
+			}
+		</script>
+
+</body>
+
+</html>

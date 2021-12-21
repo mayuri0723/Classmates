@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display</title>
+    <style>
+        *{
+            font-family: sans-serif;
+            letter-spacing: 1px;
+        }
+        .container{
+            padding: 10%;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="board" class="container">
+
+    </div>
+    <script>
+
+        let board=document.getElementById("board");
+        let cookieData=document.cookie;
+        console.log(cookieData);
+        let data=cookieData.split(";")[1].split("=")[1];
+        console.log(data);
+        let jsonData=JSON.parse(data);
+        let html="";
+        console.log(jsonData);
+        console.log(jsonData.listtype);
+        if(jsonData.listtype=="ol"){
+            
+            html+="<ol>"
+            Object.keys(jsonData).forEach((key)=>{
+                if(jsonData[key]!="ol"){
+                    html+="<li><b>"+key+"</b> : "+jsonData[key]+"</li>"
+                }
+                
+            })
+                    html+="</ol>"
+        }else if (jsonData.listtype=="ul"){
+            html+="<ul>"
+            Object.keys(jsonData).forEach((key)=>{
+                if(jsonData[key]!="ul"){
+                    html+="<li><b>"+key+"</b> : "+jsonData[key]+"</li>"
+                }
+                
+            })
+                    html+="</ul>"
+        }
+        else if(jsonData.listtype=="dl"){
+            html+="<dl>"
+            Object.keys(jsonData).forEach((key)=>{
+                if(jsonData[key]!="dl"){
+                    html+="<dt><b>"+key+"</b> </dt> <dd>"+jsonData[key]+"</dd>"     
+                }
+               
+            });
+                    html+="</dl>"
+        }
+     
+        board.innerHTML=html;
+        // data={}
+        // data=JSON.stringify(data);
+        // document.cookie="data="+data+";";
+    </script>
+</body>
+</html>
